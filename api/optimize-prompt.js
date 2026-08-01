@@ -42,6 +42,8 @@ ${rawPrompt.trim()}
         );
 
         if (!geminiRes.ok) {
+            const errorText = await geminiRes.text();
+            console.error('Gemini API error:', geminiRes.status, errorText);
             return res.status(502).json({ error: 'The AI service failed to respond.' });
         }
 
