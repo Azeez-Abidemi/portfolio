@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azeez Abidemi — AI Automation Specialist</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo">AA</a>
+      <button id="hamburger">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="CV.pdf" download class="nav-cv">Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>I build systems that run themselves.</h1>
+    <p>Azeez Abidemi — AI Automation Specialist building intelligent workflow systems with n8n, APIs, and Generative AI.
+    </p>
+    <a href="#projects">View Projects</a>
+    <a href="#contact">Get in Touch</a>
+  </section>
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <img src="me.png" alt="Azeez Abidemi" class="profile-pic">
+    <p>I'm an AI Automation Specialist and Computer Technology undergraduate at the National Open University of Nigeria.
+      I build AI-powered workflow automation systems using n8n, APIs, Supabase, Airtable, Softr, and Generative AI to
+      help businesses automate repetitive processes and improve operations.</p>
+    <p>I'm currently expanding my expertise in AI Engineering, Machine Learning, and Python while building practical
+      automation projects.</p>
+  </section>
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+
+    <h3>AI & Automation</h3>
+    <div class="tag-row">
+      <span class="tag">n8n</span>
+      <span class="tag">AI Agents</span>
+      <span class="tag">Workflow Automation</span>
+      <span class="tag">Prompt Engineering</span>
+      <span class="tag">Google Gemini API</span>
+      <span class="tag">REST APIs</span>
+    </div>
+
+    <h3>Languages</h3>
+    <div class="tag-row">
+      <span class="tag">JavaScript</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">Python (learning)</span>
+      <span class="tag">SQL (learning)</span>
+    </div>
+
+    <h3>Databases & No-Code</h3>
+    <div class="tag-row">
+      <span class="tag">Supabase</span>
+      <span class="tag">Airtable</span>
+      <span class="tag">Softr</span>
+    </div>
+
+    <h3>Tools</h3>
+    <div class="tag-row">
+      <span class="tag">Git</span>
+      <span class="tag">GitHub</span>
+      <span class="tag">VS Code</span>
+      <span class="tag">Postman</span>
+      <span class="tag">Notion</span>
+    </div>
+  </section>
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <h3>ClinicFlow — AI Clinic Automation</h3>
+      <p>An end-to-end AI clinic management platform that automates appointment reminders, prescription refill alerts,
+        WhatsApp AI symptom triage, personalized health tips, and management reporting through intelligent workflows.
+      </p>
+      <p class="stack-line">Stack: n8n, Supabase, Lovable, Gemini AI, UltraMsg</p>
+      <a href="https://github.com/Azeez-Abidemi/clinicflow-ai-automation" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>EventHub — AI Event Management</h3>
+      <p>An automated event management solution featuring attendee registration, ticket management, organizer
+        dashboards, AI-generated attendee feedback summaries, and full workflow automation for event operations.</p>
+      <p class="stack-line">Stack: Softr, Airtable, n8n, Gemini AI, Gmail API</p>
+      <a href="https://github.com/Azeez-Abidemi/Eventhub-ai-automation" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>AI Concierge System</h3>
+      <p>An AI-powered virtual concierge that automates customer inquiries, provides instant responses, and streamlines
+        customer engagement using conversational AI workflows.</p>
+      <p class="stack-line">Stack: n8n, Gemini AI, APIs, Voice AI</p>
+      <a href="https://www.loom.com/share/a717dcd639c04c8382569fb2fd0aa851" target="_blank">Watch Demo →</a>
+    </div>
+
+  </section>
+
+  <section class="section" id="demo">
+    <h2>Live Demo — AI Prompt Optimizer</h2>
+    <p>Drop in a rough prompt. Pick a tone and a role. Get back a rewritten prompt engineered to get better results from
+      AI — live, powered by Gemini.</p>
+
+    <div class="demo-panel">
+      <textarea id="promptInput" rows="4"
+        placeholder="e.g. write me something about my startup for investors"></textarea>
+
+      <div class="demo-selects">
+        <select id="toneSelect">
+          <option value="Professional">Professional</option>
+          <option value="Casual">Casual</option>
+          <option value="Persuasive">Persuasive</option>
+        </select>
+
+        <select id="roleSelect">
+          <option value="Expert Consultant">Expert Consultant</option>
+          <option value="Copywriter">Copywriter</option>
+          <option value="Software Engineer">Software Engineer</option>
+        </select>
+      </div>
+
+      <button id="optimizeBtn">Optimize Prompt</button>
+      <p id="demoError" class="demo-error"></p>
+
+      <div class="terminal-body" id="terminalBody">
+        <p>// your optimized prompt will appear here</p>
+      </div>
+
+      <button id="copyBtn" class="copy-btn" hidden>Copy to Clipboard</button>
+    </div>
+  </section>
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Have a role, a project, or a workflow you want automated? Send a message — I read every one.</p>
+
+    <form id="contactForm">
+      <label for="cName">Name</label>
+      <input type="text" id="cName">
+      <span class="field-error" id="err-name"></span>
+
+      <label for="cEmail">Email</label>
+      <input type="email" id="cEmail">
+      <span class="field-error" id="err-email"></span>
+
+      <label for="cMessage">Message</label>
+      <textarea id="cMessage" rows="5"></textarea>
+      <span class="field-error" id="err-message"></span>
+
+      <button type="submit" id="submitBtn">Send Message</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+  </section>
+  <footer class="footer">
+    <p>AI Automation Specialist · Lagos, Nigeria</p>
+    <div class="footer-links">
+      <a href="https://github.com/Azeez-Abidemi" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/azeezabidemi-21b3421a3" target="_blank">LinkedIn</a>
+      <a href="mailto:azeezabidemi20@gmail.com">Email</a>
+      <a href="CV.pdf" download>Download CV</a>
+    </div>
+    <p class="footer-copy">© 2026 Azeez Abidemi</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
