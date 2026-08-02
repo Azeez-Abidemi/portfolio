@@ -4,7 +4,32 @@ const terminalBody = document.getElementById('terminalBody');
 const copyBtn = document.getElementById('copyBtn');
 const demoError = document.getElementById('demoError');
 
-optimizeBtn.addEventListener('click', async () => {
+const toneDescriptors = {
+    Professional: 'clear, polished, and businesslike',
+    Casual: 'relaxed, conversational, and approachable',
+    Persuasive: 'compelling, confident, and benefit-driven',
+};
+
+const roleFraming = {
+    'Expert Consultant': 'a seasoned expert consultant with deep industry experience',
+    'Copywriter': 'a professional copywriter skilled at persuasive, engaging writing',
+    'Software Engineer': 'a senior software engineer who writes precise, technical explanations',
+    'Data Analyst': 'a data analyst who backs up points with structure and clarity',
+    'Teacher': 'a patient teacher who explains things simply and step by step',
+};
+
+function buildOptimizedPrompt(rawPrompt, tone, role) {
+    const toneDesc = toneDescriptors[tone] || tone.toLowerCase();
+    const roleDesc = roleFraming[role] || role;
+
+    return `Act as ${roleDesc}.
+
+Task: ${rawPrompt.trim()}
+
+Write your response in a ${toneDesc} tone. Be specific and concrete rather than generic — include real examples, numbers, or details where relevant. Structure the response clearly (short paragraphs or bullet points), and if any important detail is missing from the task above, briefly state your assumption before proceeding.`;
+}
+
+optimizeBtn.addEventListener('click', () => {
     const rawPrompt = promptInput.value.trim();
     demoError.textContent = '';
 
@@ -19,31 +44,15 @@ optimizeBtn.addEventListener('click', async () => {
     optimizeBtn.disabled = true;
     optimizeBtn.textContent = 'Optimizing...';
     copyBtn.hidden = true;
-    terminalBody.textContent = 'Calling Gemini...';
+    terminalBody.textContent = 'Optimizing...';
 
-    try {
-        const res = await fetch('/api/optimize-prompt', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ rawPrompt, tone, role }),
-        });
-
-        const data = await res.json();
-
-        if (!res.ok) {
-            throw new Error(data.error || 'Something went wrong.');
-        }
-
-        terminalBody.textContent = data.optimizedPrompt;
+    setTimeout(() => {
+        const optimizedPrompt = buildOptimizedPrompt(rawPrompt, tone, role);
+        terminalBody.textContent = optimizedPrompt;
         copyBtn.hidden = false;
-
-    } catch (err) {
-        demoError.textContent = err.message;
-        terminalBody.textContent = '// your optimized prompt will appear here';
-    } finally {
         optimizeBtn.disabled = false;
         optimizeBtn.textContent = 'Optimize Prompt';
-    }
+    }, 500);
 });
 
 copyBtn.addEventListener('click', () => {
